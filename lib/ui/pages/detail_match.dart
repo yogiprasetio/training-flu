@@ -7,12 +7,9 @@ class DetailMatch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GeneralPage(
-        onBackButtonPressed: () {
-          Navigator.pop(context);
-        },
-        title: "${match.homeTeam} VS ${match.awayTeam}",
-        child: Column(
+    return Scaffold(
+      appBar: AppBar(title: Text("${match.homeTeam} VS ${match.awayTeam}"),backgroundColor: Colors.red),
+      body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Row(
@@ -58,6 +55,7 @@ class DetailMatch extends StatelessWidget {
                       fit: BoxFit.fill)),
             )
           ],
-        ));
+        ),
+    );
   }
 }

@@ -15,6 +15,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Futball Apps"),
+        backgroundColor: Colors.red
       ),
       body: ListView.builder(
         itemCount: mockFixtures.length,
