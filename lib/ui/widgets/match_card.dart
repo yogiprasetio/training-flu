@@ -11,35 +11,91 @@ class MatchCard extends StatelessWidget {
   Widget build(BuildContext context) {
     // if(muatan.info==)
     return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset("assets/icons/${fixture.logoHome}"),
-                    Image.asset("assets/icons/${fixture.logoAway}")
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(fixture.homeTeam, style: blackFontStyle5,),
-                    Text(fixture.awayTeam, style: blackFontStyle5,)
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(fixture.scoreHome, style: blackFontStyle5,),
-                    Text(fixture.scoreAway, style: blackFontStyle5,)
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 15,),
-                    const Icon(Icons.favorite_outline)
-                  ],
-                )
-              ],
-            );
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 30,
+                height: 30,
+                child: Image.asset("assets/icons/${fixture.logoHome}"),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: 30,
+                height: 30,
+                child: Image.asset("assets/icons/${fixture.logoAway}"),
+              )
+            ],
+          ),
+        ),
+        Column(
+          children: [
+            SizedBox(
+                width: 120,
+                child: Text(
+                  fixture.homeTeam,
+                  style: blackFontStyle5,
+                )),
+            SizedBox(
+                width: 120,
+                child: Text(
+                  fixture.awayTeam,
+                  style: blackFontStyle5,
+                ))
+          ],
+        ),
+        Column(
+          children: [
+            Text(
+              fixture.scoreHome,
+              style: blackFontStyle5,
+            ),
+            Text(
+              fixture.scoreAway,
+              style: blackFontStyle5,
+            )
+          ],
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            SizedBox(
+              height: 8,
+            ),
+            _FavoriteButton()
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class _FavoriteButton extends StatefulWidget {
+  const _FavoriteButton({Key? key}) : super(key: key);
+
+  @override
+  State<_FavoriteButton> createState() => _FavoriteButtonState();
+}
+
+class _FavoriteButtonState extends State<_FavoriteButton> {
+  bool isFave = false;
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          setState(() {
+            isFave = !isFave;
+          });
+        },
+        icon: Icon(
+          isFave ? Icons.favorite : Icons.favorite_border,
+          color: Colors.red,
+        ));
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:futball_apps/models/models.dart';
 
 import 'ui/pages/pages.dart';
 
@@ -14,7 +15,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      initialRoute: HomePage.nameRoute,
+      routes: {
+        HomePage.nameRoute: (context) => const HomePage(),
+        DetailMatch.nameRoute: (context) => DetailMatch(
+            match: ModalRoute.of(context)?.settings.arguments as Fixtures)
+      },
     );
   }
 }
