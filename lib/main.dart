@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:futball_apps/models/models.dart';
+import 'package:futball_apps/shareds/shareds.dart';
 
 import 'ui/pages/pages.dart';
 
@@ -16,6 +19,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        colorScheme: Theme.of(context).colorScheme.copyWith(
+              primary: backGround1,
+              secondary: backGround2,
+            ),
+        scaffoldBackgroundColor: backGround2,
+        appBarTheme: AppBarTheme(backgroundColor: backGround2),
+        textTheme: myTextTheme,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: HomePage.nameRoute,

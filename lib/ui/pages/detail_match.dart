@@ -10,8 +10,10 @@ class DetailMatch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text("${match.homeTeam} VS ${match.awayTeam}"),
-          backgroundColor: Colors.red),
+          title: Text(
+        "${match.homeTeam} VS ${match.awayTeam}",
+        style: Theme.of(context).textTheme.headline6,
+      )),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -29,11 +31,14 @@ class DetailMatch extends StatelessWidget {
                             image:
                                 AssetImage("assets/icons/${match.logoHome}"))),
                   ),
-                  Text(match.homeTeam),
+                  Text(
+                    match.homeTeam,
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
                   Center(
                     child: Text(
                       match.scoreHome,
-                      style: redFontStyle5,
+                      style: Theme.of(context).textTheme.bodyText2,
                     ),
                   )
                 ],
@@ -50,11 +55,14 @@ class DetailMatch extends StatelessWidget {
                             image:
                                 AssetImage("assets/icons/${match.logoAway}"))),
                   ),
-                  Text(match.awayTeam),
+                  Text(
+                    match.awayTeam,
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
                   Center(
                     child: Text(
                       match.scoreAway,
-                      style: redFontStyle5,
+                      style: Theme.of(context).textTheme.bodyText2,
                     ),
                   )
                 ],

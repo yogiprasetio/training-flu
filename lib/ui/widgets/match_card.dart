@@ -40,13 +40,13 @@ class MatchCard extends StatelessWidget {
                 width: 120,
                 child: Text(
                   fixture.homeTeam,
-                  style: blackFontStyle5,
+                  style: Theme.of(context).textTheme.subtitle1,
                 )),
             SizedBox(
                 width: 120,
                 child: Text(
                   fixture.awayTeam,
-                  style: blackFontStyle5,
+                  style: Theme.of(context).textTheme.subtitle1,
                 ))
           ],
         ),
@@ -54,11 +54,11 @@ class MatchCard extends StatelessWidget {
           children: [
             Text(
               fixture.scoreHome,
-              style: blackFontStyle5,
+              style: Theme.of(context).textTheme.subtitle2,
             ),
             Text(
               fixture.scoreAway,
-              style: blackFontStyle5,
+              style: Theme.of(context).textTheme.subtitle2,
             )
           ],
         ),
